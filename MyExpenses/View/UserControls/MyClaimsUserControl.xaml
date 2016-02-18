@@ -1,0 +1,97 @@
+﻿<UserControl
+    x:Class="MyExpenses.View.UserControls.MyClaimsUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyExpenses.View.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="800"
+    d:DesignWidth="420">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="2"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5"/>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel  Background="#5888FA">
+            <TextBlock Margin="0 20 0 0" x:Name="txtheader" Grid.Column="0" FontSize="22" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Text="Draft Claims"/>
+            <TextBlock Margin="0 20 0 0"  Grid.Column="0" FontSize="22" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Text="Select claim to move line to."/>
+
+        </StackPanel>
+        <Border BorderThickness="0 1 0 0" BorderBrush="White" Grid.Row="1"/>
+
+        <!--<Grid Background="Navy" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                <ColumnDefinition Width="0.03*"></ColumnDefinition>
+                <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                <ColumnDefinition Width="0.03*"></ColumnDefinition>
+                <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                <ColumnDefinition Width="0.03*"></ColumnDefinition>
+               
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" FontSize="20" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Text="Draft"/>
+            <Border BorderThickness="1 0 0 0" BorderBrush="White" Grid.Column="1"/>
+            <TextBlock Grid.Column="2" FontSize="20" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Text="Submitted"/>
+            <Border BorderThickness="1 0 0 0" BorderBrush="White" Grid.Column="3"/>
+            <TextBlock Grid.Column="4" FontSize="20" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Text="Completed"/>
+
+        </Grid>-->
+        <Grid Grid.Row="3" HorizontalAlignment="Stretch">
+
+            <ListView ItemsSource="{Binding ListClaimHeadersDTDraft}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" x:Name="lstData" Grid.Row="1" Margin=" 10 5">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Tapped="claim_Tapped"  DataContext="{Binding}" Width="450" HorizontalAlignment="Stretch">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="2"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="2"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="3"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Foreground="Black" FontWeight="SemiBold" FontSize="24" Text="{Binding H_description}"/>
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                                    <ColumnDefinition Width="0.4*"></ColumnDefinition>
+
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Foreground="Black"  FontWeight="Normal" FontSize="20" >
+                          <Run Text="{Binding FromDate}"/>
+                          <Run Text=" - "/>
+                          <Run Text="{Binding ToDate}"/>
+
+
+                                </TextBlock>
+                                <TextBlock Foreground="Gray" Grid.Column="1" FontWeight="Normal" HorizontalAlignment="Center"  FontSize="26" Text=">"/>
+
+                            </Grid>
+                            <TextBlock Foreground="Gray" Grid.Row="4" FontWeight="Normal" FontSize="20" >
+                                  <Run  Text="{Binding H_expense_headerID}"/>
+                                     <Run Text=" ("/>
+                          <Run Text="{Binding DetailsCount}"/>
+                                         <Run Text=") - £"/>
+                                         <Run Text="{Binding Amount}"/>
+                            </TextBlock>
+
+                            <Border Grid.Row="5" BorderBrush="Gray"  BorderThickness="0 1 0 0"/>
+                          
+                        </Grid>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+
+    </Grid>
+</UserControl>

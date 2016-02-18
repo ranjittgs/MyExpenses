@@ -1,0 +1,253 @@
+﻿<Page
+    x:Class="MyExpenses.View.AddClaimLinePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyExpenses.View"
+     xmlns:usercontrols ="using:MyExpenses.View.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="White">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+
+            <ScrollViewer Grid.Row="1">
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Border  Grid.Row="1" BorderThickness="1" BorderBrush="Gray"  Margin="05 0 05 0" CornerRadius="5">
+                        <Grid Margin="05 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock FontSize="22" Foreground="Black" Text="Category"  />
+                            <TextBlock FontSize="22"  Grid.Row="2"  x:Name="txtCatName" Foreground="Black"   />
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Row="3" BorderThickness="1" BorderBrush="Gray"  Margin="05 0 05 0" CornerRadius="5">
+                        <Grid Margin="05 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock FontSize="22"  Foreground="Black" Text="Reciepts"  />
+
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Row="5" BorderThickness="1" BorderBrush="Gray"  Margin="05 0 05 0" CornerRadius="5">
+                        <Grid Margin="05 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock FontSize="22"  Foreground="Black" Text="Date"  />
+                            <DatePicker Foreground="Black" FontSize="22" x:Name="dtpClaimData"       Grid.Row="2"/>
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Row="7" BorderThickness="1" BorderBrush="Gray"  Margin="05 0 05 0" CornerRadius="5">
+                        <Grid Margin="05 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="124*"/>
+                                <ColumnDefinition Width="65*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock FontSize="22"  Foreground="Black" Text="Country" Grid.ColumnSpan="2" Margin="0,0,-1,4.333" Grid.RowSpan="2"  />
+                            <!--<ComboBox Grid.Row="2" Foreground="Black" ItemsSource="{Binding lstCountries}" DisplayMemberPath="Country_code" SelectedValuePath="Country_code" x:Name="ddlCountry" PlaceholderText="Select"  />-->
+                            <!--<ComboBox   Style="{StaticResource ComboBoxStyle1}" Grid.Row="2" Foreground="Black" 
+                                       x:Name="ddlCountry" PlaceholderText="Select"  >
+                                -->
+                            <!--<ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" Foreground="Black"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>-->
+                            <!--
+                            </ComboBox>-->
+
+                            <Button x:Name="btnCountry" Grid.Row="2" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Height="30" Margin="-5" Content="tesr" Foreground="Black" Click="Button_Click"  />
+
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Row="9" BorderThickness="1" BorderBrush="Gray"  Margin="05 0 05 0" CornerRadius="5">
+                        <Grid Margin="05 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock FontSize="22"  Foreground="Black" Text="Amount (inc VAT)"  />
+
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock FontSize="22" Foreground="Black" x:Name="txtcurrencySymbol"/>
+                                <TextBox Grid.Column="1" Width="80" Style="{StaticResource GlobalTextBoxStyle}" Grid.Row="2" x:Name="txtAmount" />
+                                <TextBlock Grid.Column="2" FontSize="22" Foreground="Black" x:Name="txtcurrencyCode"/>
+                            </Grid>
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Row="11" BorderThickness="1" BorderBrush="Gray"  Margin="05 0 05 0" CornerRadius="5">
+                        <Grid Margin="05 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock FontSize="22"  Foreground="Black" Text="VAT"  />
+                            <Grid Grid.Row="2" Tapped="Grid_Tapped">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock FontSize="22" Foreground="Black" x:Name="txtVATcurrencySymbol"/>
+                                <TextBox IsHitTestVisible="False" Grid.Column="1" Width="80" Style="{StaticResource GlobalTextBoxStyle}" Grid.Row="2" x:Name="txtVatAmount" />
+                                <TextBlock Grid.Column="2" FontSize="22" Foreground="Black" x:Name="txtVATcurrencyCode"/>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                    <Border Grid.Row="13" BorderThickness="1" BorderBrush="Gray"  Margin="05 0 05 0" CornerRadius="5">
+                        <Grid Margin="05 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock FontSize="22"  Foreground="Black" Text="Description"  />
+                            <TextBox Style="{StaticResource GlobalTextBoxStyle}" Grid.Row="2" x:Name="txtdesc" />
+                        </Grid>
+                    </Border>
+                    <Border Grid.Row="15" BorderThickness="1" BorderBrush="Gray"  Margin="05 0 05 0" CornerRadius="5">
+                        <Grid Margin="05 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock FontSize="22"  Foreground="Black" Text="Reference"  />
+                            <TextBox  Style="{StaticResource GlobalTextBoxStyle}" Grid.Row="2" x:Name="txtref" />
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Row="17" BorderThickness="1" BorderBrush="Gray"  Margin="05 0 05 0" CornerRadius="5">
+                        <Grid Margin="05 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock FontSize="22"  Foreground="Black" Text="Additional People"  />
+
+                        </Grid>
+                    </Border>
+                    <Border Grid.Row="19" BorderThickness="1" BorderBrush="Gray"  Margin="05 0 05 0" CornerRadius="5">
+                        <Grid Margin="05 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock FontSize="22" Foreground="Black" Text="Account"  />
+                            <ComboBox Grid.Row="2" Foreground="Black" ItemsSource="{Binding lstAccount}" DisplayMemberPath="Name" SelectedValuePath="ID" x:Name="ddlAccount" PlaceholderText="Select"  />
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Row="21" BorderThickness="1" BorderBrush="Gray"  Margin="05 0 05 0" CornerRadius="5">
+                        <Grid Margin="05 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock FontSize="22" Foreground="Black" Text="Cost centre"  />
+                            <ComboBox Style="{StaticResource ComboBoxStyle1}" Grid.Row="2" Foreground="Black" ItemsSource="{Binding lstCostCentre}" DisplayMemberPath="Description" SelectedValuePath="Guid" x:Name="ddlCost" PlaceholderText="Select"  />
+                        </Grid>
+                    </Border>
+                    <Border  Grid.Row="23" BorderThickness="1" BorderBrush="Gray"  Margin="05 05 05 0" CornerRadius="5">
+                        <Grid Margin="05 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock FontSize="22" Foreground="Black" Text="Project"  />
+                            <ComboBox Grid.Row="2" Foreground="Black" ItemsSource="{Binding lstProjects}" DisplayMemberPath="Project" SelectedValuePath="Guid" x:Name="ddlProject" PlaceholderText="Select"  />
+                        </Grid>
+                    </Border>
+                    <Border  Grid.Row="25" BorderThickness="1" BorderBrush="Gray"  Margin="05 05 05 0" CornerRadius="5">
+                        <Grid Margin="05 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock FontSize="22" Foreground="Black" Text="Order Number"  />
+                            <ComboBox Grid.Row="2" Foreground="Black" ItemsSource="{Binding ddlList}" DisplayMemberPath="name" SelectedValuePath="id" x:Name="ddlOrdernumber" PlaceholderText="Select"  />
+                        </Grid>
+                    </Border>
+
+
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+        <Popup IsOpen="False" x:Name="myClaimsPopup">
+            <usercontrols:CountriesUserControl x:Name="CountriesUserControl" Width="400" HorizontalAlignment="Stretch" Height="600"/>
+        </Popup>
+        <Popup IsOpen="False" x:Name="myVatRatesPopup">
+            <usercontrols:VatRatesUserControl x:Name="VatRatesUserControl" Width="400" HorizontalAlignment="Stretch" Height="600"/>
+        </Popup>
+
+        <ProgressRing x:Name="pgRing" Visibility="Collapsed" Background="Transparent" HorizontalAlignment="Center" Height="60" Width="60" Foreground="Navy" IsActive="True" />
+    </Grid>
+</Page>

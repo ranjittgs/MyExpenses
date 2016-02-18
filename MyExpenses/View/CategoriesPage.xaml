@@ -1,0 +1,48 @@
+﻿<Page
+    x:Class="MyExpenses.View.CategoriesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyExpenses.View"
+     xmlns:usercontrols ="using:MyExpenses.View.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <DataTemplate x:Name="DashboardDatatemplate">
+            <Grid Width="100" Background="#009BC9" Height="100"  Tapped="Grid_Tapped" Tag="{Binding GroupId}" Margin="5 5 8 8" >
+                <Image  Source="{Binding ImageURL}" HorizontalAlignment="Center" Width="80" Height="80"/>
+                <TextBlock Margin="0 70 0 0" Foreground="White" HorizontalAlignment="Center" FontSize="14"
+                          
+                           Text="{Binding GroupName}" />
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+    <Grid Background="White">
+        <Grid >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <ScrollViewer x:Name="scrollviewer" Grid.Row="1">
+                    <ListView ItemsSource="{Binding catlist}"  x:Name="dashBoardListView" Grid.Row="1"   Margin="0,0,0,0"
+                  HorizontalAlignment="Center" VerticalAlignment="Stretch" HorizontalContentAlignment="Center"
+                  ItemTemplate="{StaticResource DashboardDatatemplate}">
+                        <ListView.ItemsPanel >
+                            <ItemsPanelTemplate>
+                                <WrapGrid Orientation="Horizontal" MaximumRowsOrColumns="2">
+                                </WrapGrid>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+                </ScrollViewer>
+            </Grid>
+           
+        </Grid>
+        <Popup IsOpen="False" x:Name="myClaimsPopup">
+            <usercontrols:ClaimCategoriesUserControl x:Name="ClaimCategoriesUserControl" Width="400" HorizontalAlignment="Stretch" Height="600"/>
+        </Popup>
+    </Grid>
+</Page>

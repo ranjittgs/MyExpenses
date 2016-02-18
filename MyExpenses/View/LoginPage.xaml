@@ -1,0 +1,99 @@
+﻿<Page
+    x:Class="MyExpenses.LoginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyExpenses"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="LayoutRoot" 
+         Background="White">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="260"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Image Height="80" HorizontalAlignment="Center" Source="ms-appx:///Assets/title.png"/>
+                <Image Stretch="Fill" VerticalAlignment="Stretch" Grid.Row="1" HorizontalAlignment="Stretch" Source="ms-appx:///Assets/Home.png"/>
+
+            </Grid>
+            <Grid Grid.Row="1" Margin="10 10 0 0 " x:Name="gridContent">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="0"/>
+
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Foreground="Black" FontSize="20" VerticalAlignment="Center" FontWeight="SemiBold" Text="URL"/>
+                    <TextBox  PlaceholderText="URL" Grid.Row="2"
+                       x:Name="txtBoxURL" 
+                       Padding="2 4 0 0"
+                    Text="https://halcyontek.myexpensesonline.co.uk"
+                       Style="{StaticResource CustomTextBoxStyle}"/>
+                </Grid>
+                <Grid Grid.Row="1" Margin="0 10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="0"/>
+
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Foreground="Black" FontSize="20" VerticalAlignment="Center" FontWeight="SemiBold" Text="Use Name"/>
+
+                    <TextBox Grid.Row="2"  Text="rajeev"
+                       x:Name="txtBoxEmail" 
+                       PlaceholderText="Your User Name" Padding="2 4 0 0"
+                       Style="{StaticResource CustomTextBoxStyle}"/>
+                </Grid>
+                <Grid Grid.Row="2" Margin="0 3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="0"/>
+
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Foreground="Black" FontSize="20" VerticalAlignment="Center" FontWeight="SemiBold" Text="Password"/>
+
+                    <PasswordBox Grid.Row="2" PlaceholderText="Your Password"
+               x:Name="pbPassword"     Password="halcyon321$"     
+                       Style="{StaticResource CustomPasswordBoxStyle}"  />
+                </Grid>
+
+                <Grid  Visibility="Visible" Grid.Row="4" 
+                        >
+                    <Grid Visibility="Visible" HorizontalAlignment="Center" Margin="24 10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+
+                        </Grid.ColumnDefinitions>
+                        <Button 
+                         x:Name="btnSignin" Click="Signin_Click"
+                         Content="Log In" Foreground="White" Background="#5888FA"
+                         Style="{StaticResource CustomButtonStyle}"/>
+
+                    </Grid>
+                </Grid>
+            </Grid>
+
+        </Grid>
+        <ProgressRing x:Name="pgRing" Visibility="Collapsed" Background="Transparent" HorizontalAlignment="Center" Height="60" Width="60" Foreground="Navy" IsActive="True" />
+    </Grid>
+
+</Page>
