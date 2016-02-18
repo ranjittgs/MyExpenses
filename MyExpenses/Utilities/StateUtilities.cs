@@ -32,6 +32,5 @@ namespace MyExpenses.Utilities
 
        public static List<MyExpenses.ResponseParsers.VatRates.VatRates> ListVatRates{ set; get; }
 
-
     }
 }
