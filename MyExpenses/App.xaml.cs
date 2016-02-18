@@ -161,6 +161,5 @@ namespace MyExpenses
                 _connection = value;
             }
         }
-
     }
 }
